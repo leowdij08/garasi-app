@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\StatusSewa;
 use App\Enums\TipeSewa;
+use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -55,5 +56,19 @@ class Rental extends Model
     public function payments(): HasMany
     {
         return $this->hasMany(Payment::class);
+    }
+
+    /** Sewa dianggap aktif jika tanggal mulai <= tanggal <= tanggal selesai (inklusif). */
+    public function aktifPada(CarbonInterface $tanggal): bool
+    {
+        $tgl = $tanggal->toDateString();
+
+        return $this->tanggal_mulai->toDateString() <= $tgl && $this->tanggal_selesai->toDateString() >= $tgl;
+    }
+
+    /** Total sewa awal ditambah seluruh biaya perpanjangan. */
+    public function totalDenganPerpanjangan(): float
+    {
+        return round((float) $this->total_biaya + (float) $this->extensions->sum('biaya_perpanjangan'), 2);
     }
 }

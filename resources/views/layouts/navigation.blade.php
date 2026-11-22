@@ -16,6 +16,9 @@
                         <span class="ms-1 px-1.5 py-0.5 rounded-full bg-yellow-400 text-xs text-gray-900">{{ $menunggu }}</span>
                     @endif
                 </x-nav-link>
+                <x-nav-link :href="route('admin.extensions.index')" :active="request()->routeIs('admin.extensions.*')">
+                    Perpanjangan
+                </x-nav-link>
             @else
                 <x-nav-link :href="route('penyewa.rentals.create')" :active="request()->routeIs('penyewa.rentals.create')">
                     Sewa Baru
