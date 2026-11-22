@@ -9,6 +9,13 @@
                 <x-nav-link :href="route('admin.garages.index')" :active="request()->routeIs('admin.garages.*')">
                     Garasi
                 </x-nav-link>
+                @php($menunggu = \App\Models\Tenant::where('status_verifikasi', 'PENDING')->count())
+                <x-nav-link :href="route('admin.tenants.index')" :active="request()->routeIs('admin.tenants.*')">
+                    Verifikasi
+                    @if ($menunggu > 0)
+                        <span class="ms-1 px-1.5 py-0.5 rounded-full bg-yellow-400 text-xs text-gray-900">{{ $menunggu }}</span>
+                    @endif
+                </x-nav-link>
             @endif
         </div>
 

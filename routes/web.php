@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\GarageController;
+use App\Http\Controllers\Admin\TenantVerificationController;
 use App\Http\Middleware\EnsureRole;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/garasi', [GarageController::class, 'index'])->name('garages.index');
             Route::get('/garasi/buat', [GarageController::class, 'create'])->name('garages.create');
             Route::post('/garasi', [GarageController::class, 'store'])->name('garages.store');
+
+            Route::get('/penyewa', [TenantVerificationController::class, 'index'])->name('tenants.index');
+            Route::post('/penyewa/{tenant}/setujui', [TenantVerificationController::class, 'setujui'])->name('tenants.setujui');
+            Route::post('/penyewa/{tenant}/tolak', [TenantVerificationController::class, 'tolak'])->name('tenants.tolak');
         });
 
     Route::middleware(EnsureRole::class.':PENYEWA')
