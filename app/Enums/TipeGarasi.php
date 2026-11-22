@@ -17,4 +17,14 @@ enum TipeGarasi: string
             self::LISTRIK => 'E',
         };
     }
+
+    /** Nama yang ditampilkan di layar. */
+    public function label(): string
+    {
+        return match ($this) {
+            self::SEPEDA => 'Garasi Sepeda',
+            self::MOBIL => 'Garasi Mobil',
+            self::LISTRIK => 'Garasi Mobil Listrik',
+        };
+    }
 }

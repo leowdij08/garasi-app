@@ -5,6 +5,11 @@
             <x-nav-link :href="route('dashboard')" :active="request()->routeIs('*.dashboard')">
                 Dashboard
             </x-nav-link>
+            @if (Auth::user()->isAdmin())
+                <x-nav-link :href="route('admin.garages.index')" :active="request()->routeIs('admin.garages.*')">
+                    Garasi
+                </x-nav-link>
+            @endif
         </div>
 
         <div class="flex items-center gap-4 text-sm text-gray-600">

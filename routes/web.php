@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\GarageController;
 use App\Http\Middleware\EnsureRole;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,10 @@ Route::middleware('auth')->group(function () {
         ->prefix('admin')->name('admin.')
         ->group(function () {
             Route::view('/', 'admin.dashboard')->name('dashboard');
+
+            Route::get('/garasi', [GarageController::class, 'index'])->name('garages.index');
+            Route::get('/garasi/buat', [GarageController::class, 'create'])->name('garages.create');
+            Route::post('/garasi', [GarageController::class, 'store'])->name('garages.store');
         });
 
     Route::middleware(EnsureRole::class.':PENYEWA')
