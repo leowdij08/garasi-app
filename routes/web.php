@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\GarageController;
 use App\Http\Controllers\Admin\TenantVerificationController;
+use App\Http\Controllers\Penyewa\RentalController;
 use App\Http\Middleware\EnsureRole;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,10 @@ Route::middleware('auth')->group(function () {
         ->prefix('penyewa')->name('penyewa.')
         ->group(function () {
             Route::view('/', 'penyewa.dashboard')->name('dashboard');
+
+            Route::get('/sewa', [RentalController::class, 'index'])->name('rentals.index');
+            Route::get('/sewa/baru', [RentalController::class, 'create'])->name('rentals.create');
+            Route::post('/sewa', [RentalController::class, 'store'])->name('rentals.store');
         });
 });
 
