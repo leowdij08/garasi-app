@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\GarageController;
 use App\Http\Controllers\Admin\RentalExtensionController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\TenantVerificationController;
 use App\Http\Controllers\Penyewa\RentalController;
 use App\Http\Middleware\EnsureRole;
@@ -36,6 +37,8 @@ Route::middleware('auth')->group(function () {
                 ->middleware(SinkronStatusGarasi::class)->name('extensions.index');
             Route::get('/perpanjangan/{rental}', [RentalExtensionController::class, 'create'])->name('extensions.create');
             Route::post('/perpanjangan/{rental}', [RentalExtensionController::class, 'store'])->name('extensions.store');
+
+            Route::get('/laporan', [ReportController::class, 'index'])->name('reports.index');
         });
 
     Route::middleware(EnsureRole::class.':PENYEWA')

@@ -19,6 +19,9 @@
                 <x-nav-link :href="route('admin.extensions.index')" :active="request()->routeIs('admin.extensions.*')">
                     Perpanjangan
                 </x-nav-link>
+                <x-nav-link :href="route('admin.reports.index')" :active="request()->routeIs('admin.reports.*')">
+                    Laporan
+                </x-nav-link>
             @else
                 <x-nav-link :href="route('penyewa.rentals.create')" :active="request()->routeIs('penyewa.rentals.create')">
                     Sewa Baru
