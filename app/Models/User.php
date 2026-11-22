@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * Akun pengguna aplikasi. Role ADMIN atau PENYEWA; email dipakai sebagai username login.
+ */
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;

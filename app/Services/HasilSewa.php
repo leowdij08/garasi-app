@@ -18,8 +18,7 @@ final class HasilSewa
         public readonly CarbonImmutable $tanggalSelesai,
         /** Pesan untuk penyewa jika tipe sewa berubah otomatis; null jika tidak berubah. */
         public readonly ?string $notifikasi,
-    ) {
-    }
+    ) {}
 
     public function diubahOtomatis(): bool
     {

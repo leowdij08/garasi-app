@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use InvalidArgumentException;
 
+/**
+ * Data penyewa beserta status verifikasi oleh admin. Hanya penyewa APPROVED yang boleh menyewa.
+ */
 class Tenant extends Model
 {
     protected $fillable = [
@@ -63,7 +66,7 @@ class Tenant extends Model
             ]);
 
         if ($diubah === 0) {
-            throw new PendaftaranSudahDiputuskanException();
+            throw new PendaftaranSudahDiputuskanException;
         }
 
         $this->refresh();

@@ -2,6 +2,4 @@
 
 namespace App\Exceptions;
 
-class GarasiTidakTersediaException extends AturanSewaException
-{
-}
+class GarasiTidakTersediaException extends AturanSewaException {}

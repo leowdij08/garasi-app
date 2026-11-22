@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GarageController;
 use App\Http\Controllers\Admin\RentalExtensionController;
 use App\Http\Controllers\Admin\ReportController;
@@ -22,7 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::middleware(EnsureRole::class.':ADMIN')
         ->prefix('admin')->name('admin.')
         ->group(function () {
-            Route::view('/', 'admin.dashboard')->name('dashboard');
+            Route::get('/', DashboardController::class)
+                ->middleware(SinkronStatusGarasi::class)->name('dashboard');
 
             Route::get('/garasi', [GarageController::class, 'index'])
                 ->middleware(SinkronStatusGarasi::class)->name('garages.index');

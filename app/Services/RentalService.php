@@ -7,6 +7,7 @@ use App\Enums\StatusSewa;
 use App\Enums\TipeGarasi;
 use App\Enums\TipeKendaraan;
 use App\Enums\TipeSewa;
+use App\Exceptions\AturanSewaException;
 use App\Exceptions\DataSewaTidakValidException;
 use App\Exceptions\GarasiTidakTersediaException;
 use App\Exceptions\KendaraanSedangDisewaException;
@@ -31,19 +32,18 @@ class RentalService
         private readonly GarageAvailabilityService $ketersediaan,
         private readonly DocumentNumberGenerator $nomor,
         private readonly PaymentProofStorage $bukti,
-    ) {
-    }
+    ) {}
 
     /**
      * @param  array<string, mixed>  $data  isian form yang sudah divalidasi
      * @return array{0: Rental, 1: HasilSewa}
      *
-     * @throws \App\Exceptions\AturanSewaException jika melanggar aturan bisnis
+     * @throws AturanSewaException jika melanggar aturan bisnis
      */
     public function buat(Tenant $penyewa, array $data, UploadedFile $buktiBayar): array
     {
         if (! $penyewa->bolehMenyewa()) {
-            throw new PenyewaBelumDiverifikasiException();
+            throw new PenyewaBelumDiverifikasiException;
         }
 
         $tipeKendaraan = TipeKendaraan::from($data['tipe_kendaraan']);

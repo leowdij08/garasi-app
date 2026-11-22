@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Perpanjangan sewa oleh admin, dihitung harian dan tidak dikonversi menjadi bulanan.
+ */
 class RentalExtension extends Model
 {
     protected $fillable = [

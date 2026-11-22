@@ -15,7 +15,7 @@ class RentalTypeResolverTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->resolver = new RentalTypeResolver();
+        $this->resolver = new RentalTypeResolver;
     }
 
     public function test_hari_sebulan_mengikuti_bulan_dan_tahun_kabisat(): void

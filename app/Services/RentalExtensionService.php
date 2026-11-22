@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Enums\StatusSewa;
+use App\Exceptions\AturanSewaException;
 use App\Exceptions\PerpanjanganTidakValidException;
 use App\Models\Payment;
 use App\Models\Rental;
@@ -24,8 +25,7 @@ class RentalExtensionService
         private readonly PricingService $harga,
         private readonly DocumentNumberGenerator $nomor,
         private readonly PaymentProofStorage $bukti,
-    ) {
-    }
+    ) {}
 
     public function hitungTambahanHari(CarbonInterface $lama, CarbonInterface $baru): int
     {
@@ -35,7 +35,7 @@ class RentalExtensionService
         return (int) $a->diffInDays($b, false);
     }
 
-    /** @throws \App\Exceptions\AturanSewaException jika melanggar aturan perpanjangan */
+    /** @throws AturanSewaException jika melanggar aturan perpanjangan */
     public function perpanjang(User $admin, int $rentalId, CarbonInterface $tanggalBaru, UploadedFile $buktiBayar): RentalExtension
     {
         // Berkas disimpan lebih dulu dan dihapus kembali jika transaksi gagal (poin 31).

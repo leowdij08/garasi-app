@@ -2,6 +2,4 @@
 
 namespace App\Exceptions;
 
-class PerpanjanganTidakValidException extends AturanSewaException
-{
-}
+class PerpanjanganTidakValidException extends AturanSewaException {}

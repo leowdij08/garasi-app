@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
+/**
+ * Pendaftaran akun penyewa; status awal PENDING sampai diverifikasi admin.
+ */
 class RegisteredUserController extends Controller
 {
     /** Menampilkan form pendaftaran penyewa. */

@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
+/**
+ * Admin: laporan sewa per bulan, per hari, per tipe garasi, dan per penyewa.
+ */
 class ReportController extends Controller
 {
     public function index(Request $request, ReportService $laporan): View

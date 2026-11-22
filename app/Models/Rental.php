@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Sewa garasi. Harga dan sisa baterai disalin (snapshot) saat sewa dibuat agar riwayat tidak berubah.
+ */
 class Rental extends Model
 {
     protected $fillable = [

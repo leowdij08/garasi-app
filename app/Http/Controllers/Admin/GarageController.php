@@ -13,11 +13,12 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
+/**
+ * Admin: daftar garasi dan pembuatan garasi berkelompok.
+ */
 class GarageController extends Controller
 {
-    public function __construct(private readonly GarageService $garages)
-    {
-    }
+    public function __construct(private readonly GarageService $garages) {}
 
     /** Daftar garasi, dengan ringkasan kuota dan filter per tipe. */
     public function index(Request $request): View

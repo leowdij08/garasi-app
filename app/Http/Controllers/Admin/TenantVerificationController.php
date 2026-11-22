@@ -10,6 +10,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
+/**
+ * Admin: menerima atau menolak pendaftaran penyewa baru.
+ */
 class TenantVerificationController extends Controller
 {
     /** Daftar pendaftar; bawaan menampilkan yang masih menunggu. */

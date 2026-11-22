@@ -7,6 +7,9 @@ use App\Enums\TipeGarasi;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Garasi dengan ID S001/C001/E001. Kolom status hanya cache; ketersediaan dihitung dari tanggal sewa.
+ */
 class Garage extends Model
 {
     public $incrementing = false;

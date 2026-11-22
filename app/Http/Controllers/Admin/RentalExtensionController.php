@@ -13,11 +13,12 @@ use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
+/**
+ * Admin: perpanjangan sewa yang sedang aktif.
+ */
 class RentalExtensionController extends Controller
 {
-    public function __construct(private readonly RentalExtensionService $layanan)
-    {
-    }
+    public function __construct(private readonly RentalExtensionService $layanan) {}
 
     /** Daftar garasi yang sedang disewa pada hari ini. */
     public function index(): View

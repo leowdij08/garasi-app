@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * Bukti pembayaran untuk sewa baru (rental_extension_id kosong) atau perpanjangan.
+ */
 class Payment extends Model
 {
     protected $fillable = [

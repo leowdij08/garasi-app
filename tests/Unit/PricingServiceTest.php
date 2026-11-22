@@ -16,7 +16,7 @@ class PricingServiceTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->harga = new PricingService();
+        $this->harga = new PricingService;
     }
 
     public function test_bulanan_25_kali_harga_harian_tanpa_bergantung_hari_bulan(): void

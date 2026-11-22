@@ -2,6 +2,4 @@
 
 namespace App\Exceptions;
 
-class DataSewaTidakValidException extends AturanSewaException
-{
-}
+class DataSewaTidakValidException extends AturanSewaException {}

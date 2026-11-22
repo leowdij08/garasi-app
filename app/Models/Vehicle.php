@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Kendaraan milik penyewa. Nomor plat unik dan dinormalisasi; kosong untuk sepeda.
+ */
 class Vehicle extends Model
 {
     protected $fillable = [

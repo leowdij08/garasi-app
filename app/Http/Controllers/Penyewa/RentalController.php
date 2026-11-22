@@ -17,13 +17,15 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
+/**
+ * Penyewa: riwayat sewa dan pengajuan sewa baru.
+ */
 class RentalController extends Controller
 {
     public function __construct(
         private readonly RentalService $rentals,
         private readonly GarageAvailabilityService $ketersediaan,
-    ) {
-    }
+    ) {}
 
     /** Riwayat sewa milik penyewa yang sedang login. */
     public function index(Request $request): View
